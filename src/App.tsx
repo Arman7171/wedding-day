@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./App.css";
 import EnvelopeAnimation from "./EnvelopeAnimation";
 import FadeSlide from "./FadeSlide";
@@ -7,9 +7,18 @@ import Calendar from "./Calendar";
 function App() {
   const [isOpenFirst, setIsOpenFirst] = useState(true);
   const [isOpenSecond, setIsOpenSecond] = useState(false);
+  const AudioRef = useRef(new Audio("/music.mp3"));
+
   const openEnvelope = () => {
-    const audio = new Audio("/music.mp3");
-    audio.play();
+    const audio = AudioRef.current;
+    if (audio) {
+      audio.pause(); // stop if already playing
+      audio.currentTime = 0; // rewind
+      audio.play().catch(() => {
+        // some browsers block autoplay without a user gesture
+      });
+    }
+    AudioRef.current.play();
     setTimeout(() => {
       setIsOpenFirst(false);
     }, 3000);

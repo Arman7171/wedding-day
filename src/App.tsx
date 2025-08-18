@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import EnvelopeAnimation from "./EnvelopeAnimation";
 import FadeSlide from "./FadeSlide";
@@ -7,24 +7,62 @@ import Calendar from "./Calendar";
 function App() {
   const [isOpenFirst, setIsOpenFirst] = useState(true);
   const [isOpenSecond, setIsOpenSecond] = useState(false);
-  const AudioRef = useRef(new Audio("/music.mp3"));
+  const [audioStarted, setAudioStarted] = useState(false);
+  const audioRef = useRef(null);
 
-  const openEnvelope = () => {
-    // const audio = AudioRef.current;
-    // if (audio) {
-    //   audio.pause();
-    //   audio.currentTime = 0;
-    //   audio.play().catch(() => {});
-    // }
-    // AudioRef.current.play();
+  // One-time attempt to start audio on any user gesture (fallback)
+  useEffect(() => {
+    const tryStart = async () => {
+      if (audioStarted) return;
+      const a = audioRef.current;
+      if (!a) return;
+      try {
+        await a.play();
+        setAudioStarted(true);
+        removeListeners();
+      } catch {
+        // Still blocked (e.g., iOS silent switch); do nothing.
+      }
+    };
+
+    const events = ["pointerdown", "keydown", "touchstart"];
+    const removeListeners = () => {
+      events.forEach((e) => window.removeEventListener(e, tryStart, true));
+    };
+
+    events.forEach((e) =>
+      window.addEventListener(e, tryStart, { passive: true })
+    );
+    return removeListeners;
+  }, [audioStarted]);
+
+  const startAudioNow = async () => {
+    const a = audioRef.current;
+    if (!a) return;
+    try {
+      // Some browsers require the first play() to be in direct response to the event
+      await a.play();
+      setAudioStarted(true);
+    } catch (err) {
+      // Optional: show UI hint: "Tap again with sound on"
+      console.warn("Audio blocked:", err);
+    }
+  };
+
+  const openEnvelope = async () => {
+    // Start audio *immediately* on this user click/tap
+    await startAudioNow();
+
     setTimeout(() => {
       setIsOpenFirst(false);
     }, 3000);
+
     setTimeout(() => {
       setIsOpenSecond(true);
       setIsOpenFirst(true);
     }, 4000);
   };
+
   return (
     <div style={{ maxWidth: "400px", margin: "0 auto" }}>
       <FadeSlide
@@ -41,20 +79,23 @@ function App() {
             </div>
           </div>
         </div>
+
         <div className="content-center">
           <img
             src="https://optim.tildacdn.one/tild6630-3034-4734-a530-303861363739/-/resize/852x/-/format/webp/Red_and_Beige_Elegan.png.webp"
             alt=""
           />
         </div>
+
         {!isOpenSecond && (
           <div className="content-center letter-position">
+            {/* Ensure EnvelopeAnimation calls the provided onClick directly on user tap/click */}
             <EnvelopeAnimation openEnvelope={openEnvelope} />
           </div>
         )}
+
         {isOpenSecond && (
           <>
-            {" "}
             <div className="subtitle">
               Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր հարսանյաց
               արարողությանը։
@@ -70,25 +111,16 @@ function App() {
             </div>
           </>
         )}
+
+        {/* Remove autoPlay; let user gesture start it. Keep it hidden. */}
+        <audio
+          ref={audioRef}
+          src="/music.mp3" // place music.mp3 in /public
+          loop
+          preload="auto"
+          style={{ display: "none" }}
+        />
       </FadeSlide>
-      {/* <FadeSlide
-        show={isOpenSecond}
-        direction="center"
-        distance={120}
-        duration={1}>
-        <div style={{ marginTop: "150px" }}>
-          <div className="content-center">
-            <div>
-              <div className="title">Մենք ամուսնանում ենք</div>
-              <div className="content-between">
-                <div>Հոկտեմբեր 12</div>
-                <div>2025</div>
-              </div>
-            </div>
-          </div>
-        
-        </div>
-      </FadeSlide> */}
     </div>
   );
 }

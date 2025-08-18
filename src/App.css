@@ -1,3 +1,7 @@
+body{
+    background-color: rgb(233, 233, 233) !important;
+}
+
 .title {
     font-size: 30px;
     text-align: center;
@@ -45,6 +49,7 @@
     display: flex;
     justify-content: center;
     z-index: 0;
+    cursor: pointer;
   }
   
   .lid {
@@ -83,9 +88,9 @@
     top: 0;
     left: 0;
     border-top: 100px solid transparent;
-    border-right: 150px solid #C4DFF0;
-    border-bottom: 100px solid #C4DFF0;
-    border-left: 150px solid #a4d4f2;
+    border-right: 150px solid #2e2e2e;
+    border-bottom: 100px solid #0c0c0c;
+    border-left: 150px solid #2772a1;
     z-index: 3;
   }
   
@@ -107,18 +112,23 @@
     color: #3B4049;
   }
   
-  .wrapper:hover .lid.one {
-      transform: rotateX(90deg);
-      transition-delay: 0s;
+  /* OPEN STATE */
+  .wrapper.open .lid.one {
+    transform: rotateX(90deg);
+    transition-delay: 0s;
   }
   
-  .wrapper:hover .lid.two {
-      transform: rotateX(180deg);
-      transition-delay: 0.25s;
+  .wrapper.open .lid.two {
+    transform: rotateX(180deg);
+    transition-delay: 0.25s;
   }
   
-  .wrapper:hover .letter {
+  .wrapper.open .letter {
     transform: translateY(-50px);
     transition-delay: 0.5s;
   }
   
+  .letter-position{
+    position: relative;
+    top: -100px;
+}

@@ -3,6 +3,9 @@ import "./App.css";
 import EnvelopeAnimation from "./EnvelopeAnimation";
 
 function App() {
+  const openEnvelope = () => {
+    console.log("Envelope opened!");
+  };
   return (
     <>
       <div className="title">Մենք ամուսնանում ենք</div>
@@ -16,8 +19,8 @@ function App() {
           alt=""
         />
       </div>
-      <div>
-        <EnvelopeAnimation />
+      <div className="content-center letter-position">
+        <EnvelopeAnimation openEnvelope={openEnvelope} />
       </div>
     </>
   );

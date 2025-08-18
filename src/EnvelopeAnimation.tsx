@@ -1,9 +1,21 @@
 import React, { useState } from "react";
 import "./App.css";
-export default function EnvelopeAnimation() {
+
+interface PropsType {
+  openEnvelope: () => void;
+}
+
+const EnvelopeAnimation: React.FC<PropsType> = ({ openEnvelope }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div>
-      <div className="wrapper">
+      <div
+        className={`wrapper ${isOpen ? "open" : ""}`}
+        onClick={() => {
+          setIsOpen(!isOpen);
+          openEnvelope();
+        }}>
         <div className="lid one"></div>
         <div className="lid two"></div>
         <div className="envelope"></div>
@@ -13,4 +25,6 @@ export default function EnvelopeAnimation() {
       </div>
     </div>
   );
-}
+};
+
+export default EnvelopeAnimation;

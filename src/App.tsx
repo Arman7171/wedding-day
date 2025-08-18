@@ -12,11 +12,9 @@ function App() {
   const openEnvelope = () => {
     const audio = AudioRef.current;
     if (audio) {
-      audio.pause(); // stop if already playing
-      audio.currentTime = 0; // rewind
-      audio.play().catch(() => {
-        // some browsers block autoplay without a user gesture
-      });
+      audio.pause();
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
     }
     AudioRef.current.play();
     setTimeout(() => {
@@ -24,6 +22,7 @@ function App() {
     }, 3000);
     setTimeout(() => {
       setIsOpenSecond(true);
+      setIsOpenFirst(true);
     }, 4000);
   };
   return (
@@ -48,11 +47,31 @@ function App() {
             alt=""
           />
         </div>
-        <div className="content-center letter-position">
-          <EnvelopeAnimation openEnvelope={openEnvelope} />
-        </div>
+        {!isOpenSecond && (
+          <div className="content-center letter-position">
+            <EnvelopeAnimation openEnvelope={openEnvelope} />
+          </div>
+        )}
+        {isOpenSecond && (
+          <>
+            {" "}
+            <div className="subtitle">
+              Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր հարսանյաց
+              արարողությանը։
+            </div>
+            <div>
+              <Calendar />
+            </div>
+            <div className="content-center" style={{ marginTop: "20px" }}>
+              <img
+                src="https://static.tildacdn.one/tild3930-6261-4661-b737-623665393866/Group_738002694.svg"
+                alt=""
+              />
+            </div>
+          </>
+        )}
       </FadeSlide>
-      <FadeSlide
+      {/* <FadeSlide
         show={isOpenSecond}
         direction="center"
         distance={120}
@@ -67,26 +86,9 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="content-center">
-            <img
-              src="https://optim.tildacdn.one/tild6630-3034-4734-a530-303861363739/-/resize/852x/-/format/webp/Red_and_Beige_Elegan.png.webp"
-              alt=""
-            />
-          </div>
-          <div className="subtitle">
-            Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր հարսանյաց արարողությանը։
-          </div>
-          <div>
-            <Calendar />
-          </div>
-          <div className="content-center" style={{ marginTop: "20px" }}>
-            <img
-              src="https://static.tildacdn.one/tild3930-6261-4661-b737-623665393866/Group_738002694.svg"
-              alt=""
-            />
-          </div>
+        
         </div>
-      </FadeSlide>
+      </FadeSlide> */}
     </div>
   );
 }

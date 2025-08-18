@@ -1,26 +1,24 @@
 import React from "react";
-import { SearchPostProvider } from "./context/searchContext";
-import { BrowserRouter } from "react-router-dom";
-import Router from "./router";
-import Header from "@/components/Header/Header";
-import MobileMenu from "./components/MobileMenu/MobileMenu";
 import "./App.css";
+import EnvelopeAnimation from "./EnvelopeAnimation";
 
 function App() {
   return (
     <>
-      <SearchPostProvider>
-        <Header />
-        <MobileMenu />
-        <main>
-          <BrowserRouter
-            future={{
-              v7_startTransition: true,
-            }}>
-            <Router />
-          </BrowserRouter>
-        </main>
-      </SearchPostProvider>
+      <div className="title">Մենք ամուսնանում ենք</div>
+      <div className="content-between">
+        <div>Հոկտեմբեր 12</div>
+        <div>2025</div>
+      </div>
+      <div className="content-center">
+        <img
+          src="https://optim.tildacdn.one/tild6630-3034-4734-a530-303861363739/-/resize/852x/-/format/webp/Red_and_Beige_Elegan.png.webp"
+          alt=""
+        />
+      </div>
+      <div>
+        <EnvelopeAnimation />
+      </div>
     </>
   );
 }

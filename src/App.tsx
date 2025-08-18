@@ -10,13 +10,13 @@ function App() {
   const AudioRef = useRef(new Audio("/music.mp3"));
 
   const openEnvelope = () => {
-    const audio = AudioRef.current;
-    if (audio) {
-      audio.pause();
-      audio.currentTime = 0;
-      audio.play().catch(() => {});
-    }
-    AudioRef.current.play();
+    // const audio = AudioRef.current;
+    // if (audio) {
+    //   audio.pause();
+    //   audio.currentTime = 0;
+    //   audio.play().catch(() => {});
+    // }
+    // AudioRef.current.play();
     setTimeout(() => {
       setIsOpenFirst(false);
     }, 3000);

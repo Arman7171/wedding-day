@@ -148,13 +148,9 @@ body{
 
   .letter-position{
     position: relative;
-    top: -100px;
-}
-
-@media only screen and (max-width: 600px) {
-  .letter-position{
-    left: -15px;
-}
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .letter-text{

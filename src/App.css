@@ -3,11 +3,10 @@ body{
 }
 
 .title {
-    font-size: 30px;
+    font-size: 26px;
     text-align: center;
     border-bottom: 1px solid #ccc;
     width: fit-content;
-    margin: auto;
     padding-bottom: 5px;
 }
 
@@ -17,12 +16,16 @@ body{
     justify-content: center;
 }
 
+.content-center img{
+  width: 100%;
+}
+
+
 .content-between{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: auto;
-    max-width: 340px;
+    max-width: 300px;
 }
 
 * {
@@ -100,16 +103,19 @@ body{
     width: 80%;
     height: 80%;
     background-color: white;
-    border-radius: 15px;
+    border-radius: 5px;
     z-index: 2;
     transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    text-align: center;
   }
   
   .letter p {
-    text-align: center;
     font-size: 30px;
     margin-top: 30px;
     color: #3B4049;
+    width: 200px;
   }
   
   /* OPEN STATE */
@@ -127,8 +133,30 @@ body{
     transform: translateY(-50px);
     transition-delay: 0.5s;
   }
+
+  .wrapper.open.scale .letter {
+    transform: translateY(-250px) !important;
+    height: 200px;
+    width: 360px;
+    transition-delay: 0.5s;
+  }
   
+  .wrapper.scale .letter p{
+    margin-top: 70px;
+    transition: 1.7s;
+  }
+
   .letter-position{
     position: relative;
     top: -100px;
+}
+
+@media only screen and (max-width: 600px) {
+  .letter-position{
+    left: -15px;
+}
+}
+
+.letter-text{
+  font-size: 20px !important;
 }

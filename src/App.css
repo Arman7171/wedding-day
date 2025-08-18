@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(233, 233, 233) !important;
+    background-color: #eae7e2 !important;
 }
 
 .title {
@@ -32,16 +32,6 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: sans-serif;
-    background-color: #3B4049;
   }
   
   .wrapper {
@@ -155,4 +145,15 @@ body{
 
 .letter-text{
   font-size: 20px !important;
+}
+
+.subtitle {
+    font-size: 22px;
+    text-align: center;
+    margin-top: 10px;
+    color: #000;
+    width: 350px;
+    text-align: center;
+    margin: 20px auto;
+    font-weight: semi-bold;
 }

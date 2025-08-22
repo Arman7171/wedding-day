@@ -93,7 +93,7 @@ function App() {
             <div className="content-center letter-position">
               <EnvelopeAnimation openEnvelope={openEnvelope} />
             </div>
-            <div className="letter-text">Սեղմեք բացիկի վրա</div>
+            <div className="under-letter-text">Սեղմեք բացիկի վրա</div>
           </>
         )}
 

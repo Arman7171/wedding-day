@@ -157,3 +157,80 @@ body{
     margin: 20px auto;
     font-weight: semi-bold;
 }
+
+.icon img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .description{
+    width: 380px;
+    text-align: center;
+    margin: auto;
+    font-size: 20px;
+    margin: 30px 0px;
+  }
+
+  .section-img img {
+  max-width: 300px;
+  margin-bottom: 10px;
+}
+
+.button {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px 70px;
+    font-size: 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.letter-text{
+  font-size: 20px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.mt-20{
+  margin-top: 20px;
+}
+
+.timing-special-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.line{
+  border-bottom: 1px solid #000;
+  width: 60px;
+  margin: 0 10px;
+}
+
+.time{
+  font-size: 50px;
+  font-weight: lighter;
+  font-style: italic;
+  width: 120px;
+  color: #000;
+}
+
+.desc{
+  width: 120px;
+  text-align: center;
+}
+
+.names{
+  position: absolute;
+  top: 69%;
+  left: 37%;
+  transform: translate(-50%, -50%) rotate(-28deg);
+  font-size: 30px;
+  color: white;
+  font-style: italic;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  width: 300px;
+}

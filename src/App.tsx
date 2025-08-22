@@ -3,6 +3,7 @@ import "./App.css";
 import EnvelopeAnimation from "./EnvelopeAnimation";
 import FadeSlide from "./FadeSlide";
 import Calendar from "./Calendar";
+import Countdown from "./CountDown";
 
 function App() {
   const [isOpenFirst, setIsOpenFirst] = useState(true);
@@ -80,18 +81,20 @@ function App() {
           </div>
         </div>
 
-        <div className="content-center">
+        <div className="content-center" style={{ position: "relative" }}>
           <img
             src="https://optim.tildacdn.one/tild6630-3034-4734-a530-303861363739/-/resize/852x/-/format/webp/Red_and_Beige_Elegan.png.webp"
             alt=""
           />
+          {isOpenSecond && <div className="names">Զալիբեկ + Հասմիկ</div>}
         </div>
-
         {!isOpenSecond && (
-          <div className="content-center letter-position">
-            {/* Ensure EnvelopeAnimation calls the provided onClick directly on user tap/click */}
-            <EnvelopeAnimation openEnvelope={openEnvelope} />
-          </div>
+          <>
+            <div className="content-center letter-position">
+              <EnvelopeAnimation openEnvelope={openEnvelope} />
+            </div>
+            <div className="letter-text">Սեղմեք բացիկի վրա</div>
+          </>
         )}
 
         {isOpenSecond && (
@@ -103,12 +106,90 @@ function App() {
             <div>
               <Calendar />
             </div>
-            <div className="content-center" style={{ marginTop: "20px" }}>
+            <div
+              className="content-center"
+              style={{ marginTop: "20px", marginBottom: "20px" }}>
               <img
                 src="https://static.tildacdn.one/tild3930-6261-4661-b737-623665393866/Group_738002694.svg"
                 alt=""
               />
             </div>
+            <div className="icon content-center">
+              <img
+                src="https://static.tildacdn.one/tild3063-3462-4135-b763-386566386162/Vector.svg"
+                alt=""
+              />
+            </div>
+            <section>
+              <div className="description">
+                Պսակադրությունը կանցկացվի{" "}
+                <strong>Հաղարծնի վանական համալիրում</strong> ք․ Դիլիջան
+              </div>
+              <div className="section-img content-center">
+                <img
+                  src="https://static.tildacdn.one/tild6161-6236-4161-b664-626436383065/Vector11.svg"
+                  alt=""
+                />
+              </div>
+              <div className="content-center">
+                <a
+                  className="button"
+                  href="https://www.google.com/maps/place/Haghartsin+Monastery+Complex/@40.8018529,44.8912888,609m/data=!3m1!1e3!4m6!3m5!1s0x4041abcfa5aaec0b:0xf3b64d242dbcc7c!8m2!3d40.8020038!4d44.8905975!16s%2Fm%2F026yrf1?entry=ttu&amp;g_ep=EgoyMDI0MDgyMS4wIKXMDSoASAFQAw%3D%3D">
+                  Քարտեզ
+                </a>
+              </div>
+            </section>
+            <section>
+              <div className="icon content-center mt-20">
+                <img
+                  src="https://static.tildacdn.one/tild3533-6335-4934-b533-623065653239/Vector222.svg"
+                  alt=""
+                />
+              </div>
+              <div className="description">
+                Տոնական խնջույքը կանցկացվի
+                <br />
+                <strong>Lianna Hall</strong>
+                <br />
+                Սայաթ-Նովայի փող., 63 շենք
+              </div>
+              <div className="section-img content-center">
+                <img
+                  src="https://static.tildacdn.one/tild3565-3032-4233-b839-663230356636/Vector.svg"
+                  alt=""
+                />
+              </div>
+              <div className="content-center">
+                <a
+                  className="button"
+                  href="https://www.google.com/maps/place/Haghartsin+Monastery+Complex/@40.8018529,44.8912888,609m/data=!3m1!1e3!4m6!3m5!1s0x4041abcfa5aaec0b:0xf3b64d242dbcc7c!8m2!3d40.8020038!4d44.8905975!16s%2Fm%2F026yrf1?entry=ttu&amp;g_ep=EgoyMDI0MDgyMS4wIKXMDSoASAFQAw%3D%3D">
+                  Քարտեզ
+                </a>
+              </div>
+            </section>
+            <section>
+              <div className="section-img content-center mt-20">
+                <img
+                  src="https://static.tildacdn.one/tild3766-6165-4739-a264-396434326330/Group_738002636.svg"
+                  alt=""
+                />
+              </div>
+              <div className="mt-20 content-center" style={{ width: "390px" }}>
+                <div className="timing-special-item">
+                  <div className="time">15:30</div>
+                  <div className="line" />
+                  <div className="desc">Պսակադրության արարողություն</div>
+                </div>
+              </div>
+              <div className="mt-20 content-center" style={{ width: "390px" }}>
+                <div className="timing-special-item mt-20">
+                  <div className="time">17:00</div>
+                  <div className="line" />
+                  <div className="desc">Հյուրերի դիմավորում</div>
+                </div>
+              </div>
+            </section>
+            <Countdown target={undefined} />
           </>
         )}
 

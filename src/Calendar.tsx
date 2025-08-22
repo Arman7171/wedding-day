@@ -4,16 +4,26 @@ import React, { useMemo } from "react";
 const AM_MONTH = "Հոկտեմբեր"; // Hoktember
 const AM_DAYS = ["Երկ", "Երք", "Չրք", "Հնգ", "Ուրբ", "Շբթ", "Կիր"];
 
-function buildMonthMatrix(year, monthIndex1to12) {
+function buildMonthMatrix(year, monthIndex1to12, limitDays = 12) {
   // Returns a matrix of weeks (Mon..Sun), with 0 for padding days
   const first = new Date(year, monthIndex1to12 - 1, 1);
   const startWeekday = (first.getDay() + 6) % 7; // Mon=0..Sun=6
-  const daysInMonth = new Date(year, monthIndex1to12, 0).getDate();
+  const daysInMonth = Math.min(
+    new Date(year, monthIndex1to12, 0).getDate(),
+    limitDays
+  );
+
   const weeks = [];
   let cur = 1;
+
+  // first row with padding
   const firstWeek = Array(7).fill(0);
-  for (let i = startWeekday; i < 7; i++) firstWeek[i] = cur++;
+  for (let i = startWeekday; i < 7 && cur <= daysInMonth; i++) {
+    firstWeek[i] = cur++;
+  }
   weeks.push(firstWeek);
+
+  // other rows
   while (cur <= daysInMonth) {
     const week = Array(7)
       .fill(0)
@@ -21,21 +31,21 @@ function buildMonthMatrix(year, monthIndex1to12) {
     cur += 7;
     weeks.push(week);
   }
+
   return weeks;
 }
 
 export default function Calendar() {
   const year = 2025;
-  const month = 10; // October (Hoktember)
-  const activeDay = 12; // fixed, not changeable
-  const weeks = useMemo(() => buildMonthMatrix(year, month), [year, month]);
+  const month = 10; // Hoktember (October)
+  const activeDay = 12; // fixed
+  const weeks = useMemo(() => buildMonthMatrix(year, month, 12), [year, month]);
 
   return (
     <div className="cal-wrap">
-      {/* Local component CSS */}
       <style>{`
         :root {
-          --bg: #f5f2ee;
+          --bg: transparent;
           --ink: #1f2937;
           --muted: #6b7280;
           --card: #ffffff;
@@ -62,8 +72,6 @@ export default function Calendar() {
         .day--active:after {
           content: ""; position:absolute; inset:-10px; border:6px solid var(--ring); border-radius: 28px;
         }
-
-        .hint { margin-top:16px; text-align:center; color: var(--muted); font-size:14px; }
 
         @media (min-width: 768px) {
           .dow { font-size: 16px; }

@@ -71,7 +71,7 @@ function App() {
         direction="center"
         distance={120}
         duration={1}>
-        <div className="content-center" style={{ marginTop: "110px" }}>
+        <div className="content-center" style={{ marginTop: "50px" }}>
           <div>
             <div className="title">Մենք ամուսնանում ենք</div>
             <div className="content-between">
@@ -189,6 +189,7 @@ function App() {
                 </div>
               </div>
             </section>
+            <div className="countdown-text">մեր հարսանիքին մնացել է․․․</div>
             <Countdown target={undefined} />
           </>
         )}

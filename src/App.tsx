@@ -9,6 +9,7 @@ function App() {
   const [isOpenFirst, setIsOpenFirst] = useState(true);
   const [isOpenSecond, setIsOpenSecond] = useState(false);
   const [audioStarted, setAudioStarted] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const audioRef = useRef(null);
 
   // One-time attempt to start audio on any user gesture (fallback)
@@ -102,6 +103,21 @@ function App() {
             <div className="subtitle">
               Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր հարսանյաց
               արարողությանը։
+              <div
+                className="play-button"
+                onClick={() => {
+                  const a = audioRef.current;
+                  if (!a) return;
+                  if (isPlaying) {
+                    a.pause();
+                    setIsPlaying(false);
+                  } else {
+                    a.play();
+                    setIsPlaying(true);
+                  }
+                }}>
+                {!isPlaying ? <img src="/1.png" /> : <img src="/2.png" />}
+              </div>
             </div>
             <div>
               <Calendar />
@@ -191,6 +207,40 @@ function App() {
             </section>
             <div className="countdown-text">մեր հարսանիքին մնացել է․․․</div>
             <Countdown target={undefined} />
+            <div style={{ position: "relative" }}>
+              <img
+                src="https://static.tildacdn.one/tild3232-3661-4530-b735-663966386265/5249042879094059081_.jpg"
+                alt=""
+                style={{ width: "100%" }}
+              />
+              <div className="item-position">
+                <div style={{ position: "relative" }}>
+                  <img
+                    src="https://optim.tildacdn.one/tild3462-3630-4137-a261-633237383336/-/resize/710x/-/format/webp/photo.png.webp"
+                    alt=""
+                  />
+                  <div className="text-position">
+                    Սերը հեռավորություն չի ճանաչում...
+                  </div>
+                </div>
+              </div>
+            </div>
+            <footer>
+              <img
+                className="footer-image-top"
+                src="https://static.tildacdn.one/tild3663-3630-4330-a265-353665386132/photo.svg"
+                alt=""
+              />
+              <div className="footer-text">
+                with love <br />
+                Zalibek & Hasmik
+              </div>
+              <img
+                className="footer-image"
+                src="https://optim.tildacdn.one/tild3163-3334-4366-b838-303130333531/-/format/webp/photo.png.webp"
+                alt=""
+              />
+            </footer>
           </>
         )}
 

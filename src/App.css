@@ -1,5 +1,6 @@
 body{
     background-color: #eae7e2 !important;
+      font-family: "Dancing Script", cursive;
 }
 
 .title {
@@ -247,4 +248,77 @@ body{
   margin: 40px auto 0;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.item-position{
+position: absolute;
+left: calc(50% - 150px);
+top: 50%;
+}
+.item-position img{
+  width: 300px;
+  height: 300px;
+}
+
+.text-position{
+position: absolute;
+left: 50%;
+top: 37%;
+text-align: center;
+transform: translateX(-50%);
+font-weight: bold;
+font-size: 18px;
+}
+
+footer{
+  background: #353434;
+  width: 100%;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+footer .footer-image-top{
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 100%;
+  max-width: 100px;
+  height: 80px;
+  transform: translateX(-50%) rotate(-30deg);
+}
+
+footer .footer-image{
+  position: absolute;
+  bottom: -190px;
+  left: -59px;
+  width: 100%;
+  max-width: 300px;
+  height: 400px;
+  transform: rotate(-45deg);
+}
+
+.footer-text{
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 30px;
+  text-align: center;
+  width: 300px;
+  text-transform: uppercase;
+}
+
+.play-button {
+  position: absolute;
+  top: 110px;
+  right: 5px;
+  cursor: pointer;
+}
+
+.play-button img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }

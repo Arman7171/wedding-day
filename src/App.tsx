@@ -8,51 +8,80 @@ import Countdown from "./CountDown";
 function App() {
   const [isOpenFirst, setIsOpenFirst] = useState(true);
   const [isOpenSecond, setIsOpenSecond] = useState(false);
+
+  // Audio state
   const [audioStarted, setAudioStarted] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [userPaused, setUserPaused] = useState(false); // prevent auto-start after a manual pause
   const audioRef = useRef(null);
 
-  // One-time attempt to start audio on any user gesture (fallback)
+  // One-time attempt to start audio on the first user gesture (tap, click, key)
   useEffect(() => {
+    const a = audioRef.current;
+    if (!a) return;
+
     const tryStart = async () => {
-      if (audioStarted) return;
-      const a = audioRef.current;
-      if (!a) return;
+      if (audioStarted || userPaused) return; // don't auto-start again if the user paused
       try {
         await a.play();
         setAudioStarted(true);
-        removeListeners();
       } catch {
-        // Still blocked (e.g., iOS silent switch); do nothing.
+        // Still blocked (e.g., iOS silent switch); ignore.
+      } finally {
+        removeListeners();
       }
     };
 
-    const events = ["pointerdown", "keydown", "touchstart"];
+    const events: (keyof WindowEventMap)[] = [
+      "pointerdown",
+      "keydown",
+      "touchstart",
+    ];
+    // IMPORTANT: use the exact same options for add/remove
+    const opts: AddEventListenerOptions = { passive: true }; // capture=false
+
     const removeListeners = () => {
-      events.forEach((e) => window.removeEventListener(e, tryStart, true));
+      events.forEach((e) =>
+        window.removeEventListener(e, tryStart as EventListener, opts)
+      );
     };
 
     events.forEach((e) =>
-      window.addEventListener(e, tryStart, { passive: true })
+      window.addEventListener(e, tryStart as EventListener, opts)
     );
     return removeListeners;
-  }, [audioStarted]);
+  }, [audioStarted, userPaused]);
+
+  // Keep isPlaying in sync with the actual audio element (covers OS/auto pauses)
+  useEffect(() => {
+    const a = audioRef.current;
+    if (!a) return;
+
+    const onPlay = () => setIsPlaying(true);
+    const onPause = () => setIsPlaying(false);
+
+    a.addEventListener("play", onPlay);
+    a.addEventListener("pause", onPause);
+    return () => {
+      a.removeEventListener("play", onPlay);
+      a.removeEventListener("pause", onPause);
+    };
+  }, []);
 
   const startAudioNow = async () => {
     const a = audioRef.current;
-    if (!a) return;
+    if (!a || userPaused) return;
     try {
-      // Some browsers require the first play() to be in direct response to the event
       await a.play();
       setAudioStarted(true);
+      setIsPlaying(true);
     } catch (err) {
-      // Optional: show UI hint: "Tap again with sound on"
       console.warn("Audio blocked:", err);
     }
   };
 
   const openEnvelope = async () => {
-    // Start audio *immediately* on this user click/tap
+    // Start audio immediately on the user click/tap
     await startAudioNow();
 
     setTimeout(() => {
@@ -63,6 +92,23 @@ function App() {
       setIsOpenSecond(true);
       setIsOpenFirst(true);
     }, 4000);
+  };
+
+  const togglePlay = async () => {
+    const a = audioRef.current;
+    if (!a) return;
+
+    if (isPlaying) {
+      a.pause();
+      setUserPaused(true); // user explicitly paused; don't auto-start again
+    } else {
+      setUserPaused(false); // user explicitly wants music
+      try {
+        await a.play();
+      } catch (err) {
+        console.warn("Audio blocked:", err);
+      }
+    }
   };
 
   return (
@@ -89,6 +135,7 @@ function App() {
           />
           {isOpenSecond && <div className="names">Զալիբեկ + Հասմիկ</div>}
         </div>
+
         {!isOpenSecond && (
           <>
             <div className="content-center letter-position">
@@ -103,25 +150,19 @@ function App() {
             <div className="subtitle">
               Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր հարսանյաց
               արարողությանը։
-              <div
-                className="play-button"
-                onClick={() => {
-                  const a = audioRef.current;
-                  if (!a) return;
-                  if (isPlaying) {
-                    a.pause();
-                    setIsPlaying(false);
-                  } else {
-                    a.play();
-                    setIsPlaying(true);
-                  }
-                }}>
-                {!isPlaying ? <img src="/1.png" /> : <img src="/2.png" />}
+              <div className="play-button" onClick={togglePlay}>
+                {!isPlaying ? (
+                  <img src="/1.png" alt="play" />
+                ) : (
+                  <img src="/2.png" alt="pause" />
+                )}
               </div>
             </div>
+
             <div>
               <Calendar />
             </div>
+
             <div
               className="content-center"
               style={{ marginTop: "20px", marginBottom: "20px" }}>
@@ -130,12 +171,14 @@ function App() {
                 alt=""
               />
             </div>
+
             <div className="icon content-center">
               <img
                 src="https://static.tildacdn.one/tild3063-3462-4135-b763-386566386162/Vector.svg"
                 alt=""
               />
             </div>
+
             <section>
               <div className="description">
                 Պսակադրությունը կանցկացվի{" "}
@@ -150,11 +193,14 @@ function App() {
               <div className="content-center">
                 <a
                   className="button"
-                  href="https://www.google.com/maps/place/Haghartsin+Monastery+Complex/@40.8018529,44.8912888,609m/data=!3m1!1e3!4m6!3m5!1s0x4041abcfa5aaec0b:0xf3b64d242dbcc7c!8m2!3d40.8020038!4d44.8905975!16s%2Fm%2F026yrf1?entry=ttu&amp;g_ep=EgoyMDI0MDgyMS4wIKXMDSoASAFQAw%3D%3D">
+                  href="https://www.google.com/maps/place/Haghartsin+Monastery+Complex/@40.8018529,44.8912888,609m/data=!3m1!1e3!4m6!3m5!1s0x4041abcfa5aaec0b:0xf3b64d242dbcc7c!8m2!3d40.8020038!4d44.8905975!16s%2Fm%2F026yrf1?entry=ttu&amp;g_ep=EgoyMDI0MDgyMS4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noreferrer">
                   Քարտեզ
                 </a>
               </div>
             </section>
+
             <section>
               <div className="icon content-center mt-20">
                 <img
@@ -178,11 +224,14 @@ function App() {
               <div className="content-center">
                 <a
                   className="button"
-                  href="https://www.google.com/maps/place/Haghartsin+Monastery+Complex/@40.8018529,44.8912888,609m/data=!3m1!1e3!4m6!3m5!1s0x4041abcfa5aaec0b:0xf3b64d242dbcc7c!8m2!3d40.8020038!4d44.8905975!16s%2Fm%2F026yrf1?entry=ttu&amp;g_ep=EgoyMDI0MDgyMS4wIKXMDSoASAFQAw%3D%3D">
+                  href="https://www.google.com/maps/place/Haghartsin+Monastery+Complex/@40.8018529,44.8912888,609m/data=!3m1!1e3!4m6!3m5!1s0x4041abcfa5aaec0b:0xf3b64d242dbcc7c!8m2!3d40.8020038!4d44.8905975!16s%2Fm%2F026yrf1?entry=ttu&amp;g_ep=EgoyMDI0MDgyMS4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noreferrer">
                   Քարտեզ
                 </a>
               </div>
             </section>
+
             <section>
               <div className="section-img content-center mt-20">
                 <img
@@ -205,8 +254,10 @@ function App() {
                 </div>
               </div>
             </section>
+
             <div className="countdown-text">մեր հարսանիքին մնացել է․․․</div>
             <Countdown target={undefined} />
+
             <div style={{ position: "relative" }}>
               <img
                 src="https://static.tildacdn.one/tild3232-3661-4530-b735-663966386265/5249042879094059081_.jpg"
@@ -225,6 +276,7 @@ function App() {
                 </div>
               </div>
             </div>
+
             <footer>
               <img
                 className="footer-image-top"
@@ -244,7 +296,7 @@ function App() {
           </>
         )}
 
-        {/* Remove autoPlay; let user gesture start it. Keep it hidden. */}
+        {/* No autoPlay; only start via a user gesture. Keep it hidden. */}
         <audio
           ref={audioRef}
           src="/music.mp3" // place music.mp3 in /public

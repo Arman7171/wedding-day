@@ -148,8 +148,6 @@ function App() {
         {isOpenSecond && (
           <>
             <div className="subtitle">
-              Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր հարսանյաց
-              արարողությանը։
               <div className="play-button" onClick={togglePlay}>
                 {!isPlaying ? (
                   <img
@@ -163,6 +161,8 @@ function App() {
                   />
                 )}
               </div>
+              Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր հարսանյաց
+              արարողությանը։
             </div>
 
             <div>

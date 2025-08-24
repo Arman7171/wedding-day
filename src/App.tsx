@@ -191,10 +191,7 @@ function App() {
                 <strong>Սաղմոսավանք վանական համալիր</strong> գ. Սաղմոսավանք
               </div>
               <div className="section-img content-center">
-                <img
-                  src="https://static.tildacdn.one/tild6161-6236-4161-b664-626436383065/Vector11.svg"
-                  alt=""
-                />
+                <img src="3.jpg" alt="" />
               </div>
               <div className="content-center">
                 <a

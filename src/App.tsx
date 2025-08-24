@@ -188,7 +188,7 @@ function App() {
             <section>
               <div className="description">
                 Պսակադրությունը կանցկացվի{" "}
-                <strong>Սաղմոսավանք վանական համալիր</strong> գ. Սաղմոսավանք
+                <strong>Սաղմոսավանք վանական համալիր</strong> գ. Սաղմոսավան
               </div>
               <div className="section-img content-center">
                 <img src="3.jpg" alt="" />
@@ -243,8 +243,15 @@ function App() {
                 />
               </div>
               <div className="mt-20 content-center" style={{ width: "390px" }}>
+                <div className="timing-special-item mt-20">
+                  <div className="time">11:30</div>
+                  <div className="line" />
+                  <div className="desc">Հարսի տուն</div>
+                </div>
+              </div>
+              <div className="mt-20 content-center" style={{ width: "390px" }}>
                 <div className="timing-special-item">
-                  <div className="time">15:30</div>
+                  <div className="time">13:30</div>
                   <div className="line" />
                   <div className="desc">Պսակադրության արարողություն</div>
                 </div>

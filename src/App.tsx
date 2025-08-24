@@ -152,9 +152,15 @@ function App() {
               արարողությանը։
               <div className="play-button" onClick={togglePlay}>
                 {!isPlaying ? (
-                  <img src="/1.png" alt="play" />
+                  <img
+                    src="https://static.tildacdn.one/tild3837-3532-4231-b936-613631626366/photo.png"
+                    alt="play"
+                  />
                 ) : (
-                  <img src="/2.png" alt="pause" />
+                  <img
+                    src="https://static.tildacdn.one/tild6535-3930-4832-b862-393531303865/dsrk.png"
+                    alt="pause"
+                  />
                 )}
               </div>
             </div>
@@ -182,7 +188,7 @@ function App() {
             <section>
               <div className="description">
                 Պսակադրությունը կանցկացվի{" "}
-                <strong>Հաղարծնի վանական համալիրում</strong> ք․ Դիլիջան
+                <strong>Սաղմոսավանք վանական համալիր</strong> գ. Սաղմոսավանք
               </div>
               <div className="section-img content-center">
                 <img
@@ -193,7 +199,7 @@ function App() {
               <div className="content-center">
                 <a
                   className="button"
-                  href="https://www.google.com/maps/place/Haghartsin+Monastery+Complex/@40.8018529,44.8912888,609m/data=!3m1!1e3!4m6!3m5!1s0x4041abcfa5aaec0b:0xf3b64d242dbcc7c!8m2!3d40.8020038!4d44.8905975!16s%2Fm%2F026yrf1?entry=ttu&amp;g_ep=EgoyMDI0MDgyMS4wIKXMDSoASAFQAw%3D%3D"
+                  href="https://www.google.com/maps/place/%D0%A1%D0%B0%D0%B3%D0%BC%D0%BE%D1%81%D0%B0%D0%B2%D0%B0%D0%BD%D0%BA/@40.378522,44.3770736,5505m/data=!3m1!1e3!4m6!3m5!1s0x406a83a65b5f5b23:0x2c15637a87b6ecee!8m2!3d40.3805351!4d44.3967175!16s%2Fm%2F027tzt8?entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D"
                   target="_blank"
                   rel="noreferrer">
                   Քարտեզ
@@ -211,9 +217,9 @@ function App() {
               <div className="description">
                 Տոնական խնջույքը կանցկացվի
                 <br />
-                <strong>Lianna Hall</strong>
+                <strong>Lianna garden Hall</strong>
                 <br />
-                Սայաթ-Նովայի փող., 63 շենք
+                Փարաքար, Երիտասարդության 34
               </div>
               <div className="section-img content-center">
                 <img
@@ -224,7 +230,7 @@ function App() {
               <div className="content-center">
                 <a
                   className="button"
-                  href="https://www.google.com/maps/place/Haghartsin+Monastery+Complex/@40.8018529,44.8912888,609m/data=!3m1!1e3!4m6!3m5!1s0x4041abcfa5aaec0b:0xf3b64d242dbcc7c!8m2!3d40.8020038!4d44.8905975!16s%2Fm%2F026yrf1?entry=ttu&amp;g_ep=EgoyMDI0MDgyMS4wIKXMDSoASAFQAw%3D%3D"
+                  href="https://www.google.com/maps/place/%D4%BC%D5%AB%D5%A1%D5%B6%D5%B6%D5%A1+%D4%B3%D5%A1%D6%80%D5%A4%D5%A5%D5%B6+%D5%80%D5%B8%D5%AC/@40.1701043,44.3691315,7114m/data=!3m1!1e3!4m9!3m8!1s0x406abf20058b7395:0xc8881d319e6d89ca!5m2!4m1!1i2!8m2!3d40.1649513!4d44.3920288!16s%2Fg%2F11ktyzthbv?entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D"
                   target="_blank"
                   rel="noreferrer">
                   Քարտեզ
@@ -254,10 +260,32 @@ function App() {
                 </div>
               </div>
             </section>
-
-            <div className="countdown-text">մեր հարսանիքին մնացել է․․․</div>
-            <Countdown target={undefined} />
-
+            <section>
+              <div className="details">
+                <img
+                  src="https://optim.tildacdn.one/tild3163-3334-4366-b838-303130333531/-/format/webp/photo.png.webp"
+                  alt=""
+                />
+                <div className="details-content">
+                  <h1>Details</h1>
+                  <br />
+                  <div>
+                    Ձեզ հետ բերեք ՍԵՐ, ժպիտներ ու անսահման դրական էմոցիաներ,
+                    ինչպես նաև հարմարավետ կոշիկներ՝ պարելու համար։
+                    <br />
+                    <br />
+                    Թույլ տանք, որ այդ օրը սպիտակ զգեստով լինի միայն հարսնացուն
+                    🤍
+                  </div>
+                </div>
+                <div className="countdown-section">
+                  <div className="countdown-text">
+                    մեր հարսանիքին մնացել է․․․
+                  </div>
+                  <Countdown target={undefined} />
+                </div>
+              </div>
+            </section>
             <div style={{ position: "relative" }}>
               <img
                 src="https://static.tildacdn.one/tild3232-3661-4530-b735-663966386265/5249042879094059081_.jpg"

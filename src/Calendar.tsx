@@ -49,7 +49,7 @@ export default function Calendar() {
           --ink: #1f2937;
           --muted: #6b7280;
           --card: #ffffff;
-          --ring: #99dbec;
+          --ring: #b2b2b2;
           --shadow: 0 2px 8px rgba(0,0,0,.06);
         }
         .cal-wrap { background: var(--bg); color: var(--ink); display: flex; align-items: flex-start; justify-content: center; padding: 40px 16px; }

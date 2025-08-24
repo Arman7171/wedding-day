@@ -47,11 +47,11 @@ export default function CountdownToOct12({ target }) {
     <div className="cd-wrap">
       <style>{`
         .cd-wrap{width:100%;color:#0a0a0a;display:flex;align-items:center;justify-content:center;padding:24px}
-        .cd-inner{width:100%;max-width:1000px;display:flex;flex-direction:column;align-items:center;gap:32px}
+        .cd-inner{width:100%;max-width:1000px;color:white;display:flex;flex-direction:column;align-items:center;gap:32px}
         .cd-row{display:flex;align-items:baseline;gap:clamp(16px,2.5vw,40px);user-select:none}
         .cd-cell{display:flex;flex-direction:column;align-items:center}
         .cd-digits{font-weight:900;letter-spacing:-.02em;line-height:1;font-size:clamp(48px,12vw,160px)}
-        .cd-label{margin-top:16px;font-size:clamp(16px,2.5vw,28px);color:#1f2937}
+        .cd-label{margin-top:16px;color:white;font-size:clamp(16px,2.5vw,28px)}
         .cd-colon{font-weight:900;height: 90px;padding-top:5px;line-height:1;font-size:clamp(32px,8vw,96px);align-self:center}
       `}</style>
       <div className="cd-inner">

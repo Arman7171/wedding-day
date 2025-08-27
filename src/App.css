@@ -205,6 +205,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
 }
 
 .line{
@@ -219,6 +220,7 @@ body{
   font-style: italic;
   width: 120px;
   color: #000;
+  text-align: right;
 }
 
 .desc{
@@ -231,7 +233,7 @@ body{
   top: 69%;
   left: 40%;
   transform: translate(-50%, -50%);
-  font-size: 30px;
+  font-size: 25px;
   color: white;
   font-style: italic;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);

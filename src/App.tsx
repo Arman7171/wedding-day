@@ -219,10 +219,7 @@ function App() {
                 Փարաքար, Երիտասարդության 34
               </div>
               <div className="section-img content-center">
-                <img
-                  src="https://static.tildacdn.one/tild3565-3032-4233-b839-663230356636/Vector.svg"
-                  alt=""
-                />
+                <img src="4.JPG" alt="" />
               </div>
               <div className="content-center">
                 <a
@@ -242,22 +239,28 @@ function App() {
                   alt=""
                 />
               </div>
-              <div className="mt-20 content-center" style={{ width: "390px" }}>
-                <div className="timing-special-item mt-20">
+              <div
+                className="mt-20 content-center"
+                style={{ width: "390px", height: "90px" }}>
+                <div className="timing-special-item">
                   <div className="time">11:30</div>
                   <div className="line" />
                   <div className="desc">Հարսի տուն</div>
                 </div>
               </div>
-              <div className="mt-20 content-center" style={{ width: "390px" }}>
+              <div
+                className="mt-20 content-center"
+                style={{ width: "390px", height: "90px" }}>
                 <div className="timing-special-item">
                   <div className="time">13:30</div>
                   <div className="line" />
                   <div className="desc">Պսակադրության արարողություն</div>
                 </div>
               </div>
-              <div className="mt-20 content-center" style={{ width: "390px" }}>
-                <div className="timing-special-item mt-20">
+              <div
+                className="mt-20 content-center"
+                style={{ width: "390px", height: "90px" }}>
+                <div className="timing-special-item">
                   <div className="time">17:00</div>
                   <div className="line" />
                   <div className="desc">Հյուրերի դիմավորում</div>
@@ -276,10 +279,10 @@ function App() {
                   <div>
                     Ձեզ հետ բերեք ՍԵՐ, ժպիտներ ու անսահման դրական էմոցիաներ,
                     ինչպես նաև հարմարավետ կոշիկներ՝ պարելու համար։
+                    {/* <br />
                     <br />
-                    <br />
-                    Թույլ տանք, որ այդ օրը սպիտակ զգեստով լինի միայն հարսնացուն
-                    🤍
+                    Սիրելի աղջիկներ, ույլ տանք, որ այդ օրը սպիտակ զգեստով լինի միայն
+                    հարսնացուն 🤍 */}
                   </div>
                 </div>
                 <div className="countdown-section">

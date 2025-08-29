@@ -279,6 +279,7 @@ footer{
   height: 400px;
   position: relative;
   overflow: hidden;
+  top: -1px;
 }
 
 footer .footer-image-top{

@@ -191,7 +191,7 @@ function App() {
                 <strong>Սաղմոսավանք վանական համալիր</strong> գ. Սաղմոսավան
               </div>
               <div className="section-img content-center">
-                <img src="3.jpg" alt="" />
+                <img src="7.PNG" alt="" />
               </div>
               <div className="content-center">
                 <a
@@ -219,7 +219,7 @@ function App() {
                 Փարաքար, Երիտասարդության 34
               </div>
               <div className="section-img content-center">
-                <img src="4.JPG" alt="" />
+                <img src="6.JPG" alt="" />
               </div>
               <div className="content-center">
                 <a
@@ -267,6 +267,24 @@ function App() {
                 </div>
               </div>
             </section>
+            <div style={{ position: "relative", top: "5px" }}>
+              <img
+                src="https://static.tildacdn.one/tild3232-3661-4530-b735-663966386265/5249042879094059081_.jpg"
+                alt=""
+                style={{ width: "100%" }}
+              />
+              <div className="item-position">
+                <div style={{ position: "relative" }}>
+                  <img
+                    src="https://optim.tildacdn.one/tild3462-3630-4137-a261-633237383336/-/resize/710x/-/format/webp/photo.png.webp"
+                    alt=""
+                  />
+                  <div className="text-position">
+                    Սերը հեռավորություն չի ճանաչում...
+                  </div>
+                </div>
+              </div>
+            </div>
             <section>
               <div className="details">
                 <img
@@ -293,25 +311,6 @@ function App() {
                 </div>
               </div>
             </section>
-            <div style={{ position: "relative" }}>
-              <img
-                src="https://static.tildacdn.one/tild3232-3661-4530-b735-663966386265/5249042879094059081_.jpg"
-                alt=""
-                style={{ width: "100%" }}
-              />
-              <div className="item-position">
-                <div style={{ position: "relative" }}>
-                  <img
-                    src="https://optim.tildacdn.one/tild3462-3630-4137-a261-633237383336/-/resize/710x/-/format/webp/photo.png.webp"
-                    alt=""
-                  />
-                  <div className="text-position">
-                    Սերը հեռավորություն չի ճանաչում...
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <footer>
               <img
                 className="footer-image-top"

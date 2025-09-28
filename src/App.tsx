@@ -118,7 +118,7 @@ function App() {
         direction="center"
         distance={120}
         duration={1}>
-        <div className="content-center" style={{ marginTop: "50px" }}>
+        <div className="content-center wedding" style={{ marginTop: "50px" }}>
           <div>
             <div className="title">Մենք ամուսնանում ենք</div>
             <div className="content-between">
@@ -129,10 +129,7 @@ function App() {
         </div>
 
         <div className="content-center" style={{ position: "relative" }}>
-          <img
-            src="https://optim.tildacdn.one/tild6630-3034-4734-a530-303861363739/-/resize/852x/-/format/webp/Red_and_Beige_Elegan.png.webp"
-            alt=""
-          />
+          <img src="8.jpeg" alt="" />
           {isOpenSecond && <div className="names">Զալիբեկ + Հասմիկ</div>}
         </div>
 
@@ -166,7 +163,8 @@ function App() {
             </div>
 
             <div>
-              <Calendar />
+              {/* <Calendar /> */}
+              <img src="10.png" alt="" />
             </div>
 
             <div
@@ -268,11 +266,7 @@ function App() {
               </div>
             </section>
             <div style={{ position: "relative", top: "5px" }}>
-              <img
-                src="https://static.tildacdn.one/tild3232-3661-4530-b735-663966386265/5249042879094059081_.jpg"
-                alt=""
-                style={{ width: "100%" }}
-              />
+              <img src="9.jpg" alt="" style={{ width: "100%" }} />
               <div className="item-position">
                 <div style={{ position: "relative" }}>
                   <img
@@ -280,7 +274,7 @@ function App() {
                     alt=""
                   />
                   <div className="text-position">
-                    Սերը հեռավորություն չի ճանաչում...
+                    Արդ ինչը Աստված միացրեց, մարդը թող չբաժանի
                   </div>
                 </div>
               </div>
@@ -297,10 +291,6 @@ function App() {
                   <div>
                     Ձեզ հետ բերեք ՍԵՐ, ժպիտներ ու անսահման դրական էմոցիաներ,
                     ինչպես նաև հարմարավետ կոշիկներ՝ պարելու համար։
-                    <br />
-                    <br />
-                    Սիրելի աղջիկներ, թույլ տանք, որ այդ օրը սպիտակ զգեստով լինի
-                    միայն հարսնացուն 🤍
                   </div>
                 </div>
                 <div className="countdown-section">

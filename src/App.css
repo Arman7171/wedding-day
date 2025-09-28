@@ -6,7 +6,6 @@ body{
 .title {
     font-size: 26px;
     text-align: center;
-    border-bottom: 1px solid #ccc;
     width: fit-content;
     padding-bottom: 5px;
 }
@@ -156,7 +155,7 @@ body{
     color: #000;
     width: 350px;
     text-align: center;
-    margin: 30px auto 10px;
+    margin: 70px auto 10px;
     font-weight: 600;
 }
 
@@ -230,13 +229,12 @@ body{
 
 .names{
   position: absolute;
-  top: 69%;
-  left: 40%;
-  transform: translate(-50%, -50%);
+  top: 106%;
+  left: 50%;
+  transform: translate(-39%, -50%);
   font-size: 25px;
-  color: white;
+  color: black;
   font-style: italic;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   z-index: 2;
   width: 300px;
 }
@@ -255,22 +253,29 @@ body{
 
 .item-position{
 position: absolute;
-left: calc(50% - 150px);
-top: 50%;
+left: calc(50% - 140px);
+top: 59%;
 }
 .item-position img{
-  width: 300px;
-  height: 300px;
+  width: 280px;
+  height: 230px;
+}
+
+.wedding{
+  position: absolute;
+  width: 100%;
+  z-index: 99;
 }
 
 .text-position{
 position: absolute;
 left: 50%;
-top: 37%;
+top: 41%;
+width: 200px;
 text-align: center;
 transform: translateX(-50%);
 font-weight: bold;
-font-size: 18px;
+font-size: 16px;
 }
 
 footer{

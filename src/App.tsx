@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import EnvelopeAnimation from "./EnvelopeAnimation";
 import FadeSlide from "./FadeSlide";
-import Calendar from "./Calendar";
+// import Calendar from "./Calendar";
 import Countdown from "./CountDown";
 
 function App() {

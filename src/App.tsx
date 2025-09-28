@@ -267,7 +267,7 @@ function App() {
             </section>
             <div style={{ position: "relative", top: "5px" }}>
               <img src="9.JPG" alt="" style={{ width: "100%" }} />
-              <div className="item-position">
+              <div className="item-position a">
                 <div style={{ position: "relative" }}>
                   <img
                     src="https://optim.tildacdn.one/tild3462-3630-4137-a261-633237383336/-/resize/710x/-/format/webp/photo.png.webp"

@@ -164,7 +164,7 @@ function App() {
 
             <div>
               {/* <Calendar /> */}
-              <img src="10.png" alt="" />
+              <img src="10.png" alt="" style={{ width: "100%" }} />
             </div>
 
             <div
@@ -266,7 +266,7 @@ function App() {
               </div>
             </section>
             <div style={{ position: "relative", top: "5px" }}>
-              <img src="9.jpg" alt="" style={{ width: "100%" }} />
+              <img src="9.JPG" alt="" style={{ width: "100%" }} />
               <div className="item-position">
                 <div style={{ position: "relative" }}>
                   <img
